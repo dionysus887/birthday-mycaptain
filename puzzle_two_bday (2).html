@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Puzzle 2</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    font-family: "Times New Roman", serif;
+    overflow-x: hidden;
+  }
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    text-align: center;
+    border: 3px solid rgba(57, 255, 20, 0.4); /* muted green */ /* bright pink */
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(111, 214, 255, 0.25), 0 0 40px rgba(57, 255, 20, 0.25); /* blue + pink glow */
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 30, 0.4);
+  }
+  h1 {
+    font-size: 2.3rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+  }
+  .intro {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    background: rgba(111, 214, 255, 0.15); /* muted blue */ /* light blue */
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(57, 255, 20, 0.4); /* muted green */ /* pink border */
+  }
+  .poem {
+    white-space: pre-line;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.6); /* black box */
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(57, 255, 20, 0.4); /* muted green */ /* pink border */
+  }
+  .hint {
+    margin-top: 35px;
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+</style>
+</head>
+
+<body>
+<audio id="bgm" autoplay loop>
+  <source src="https://dn721804.ca.archive.org/0/items/Bandcamp-277078843/277078843.mp3" type="audio/mpeg" />
+</audio>
+
+<div class="container">
+  
+  <div class="intro">
+    <strong>OH SO YOU REALLY THOUGHT YOU ARE GOING TO GET YOUR GIFT THIS EARLY??</strong><br>
+    WELL NO! YOU HAVE TO WORK HARDER FOR IT! HEHEH
+  </div>
+
+  <div class="poem">
+O Captain! my Captain! our fearful trip is done,
+The ship has weather’d every rack, the prize we sought is won,
+The port is near, the bells I hear, the people all exulting,
+While follow eyes the steady keel, the vessel grim and daring;
+But O heart! heart! heart!
+O the bleeding drops of red,
+Where on the deck my Captain lies,
+Fallen cold and dead.
+
+O Captain! my Captain! rise up and hear the bells;
+Rise up—for you the flag is flung—for you the bugle trills,
+For you bouquets and ribbon’d wreaths—for you the shores a-crowding,
+For you they call, the swaying mass, their eager faces turning;
+Here Captain! dear father!
+This arm beneath your head!
+It is some dream that on the deck,
+You’ve fallen cold and dead.
+
+My Captain does not answer, his lips are pale and still,
+My father does not feel my arm, he has no pulse nor will,
+The ship is anchor’d safe and sound, its voyage closed and done,
+From fearful trip the victor ship comes in with object won;
+Exult O shores, and ring O bells!
+But I with mournful tread,
+Walk the deck my Captain lies,
+Fallen cold and dead.
+  </div>
+
+  <div class="hint">
+    Maybe… the poem is more than a poem. Maybe it's pointing you somewhere.
+    <br>Something… or someone… connected to it.
+    <br>And maybe a number that related to just you. (dww it ain't our anniversary)
+    <br><em>Put the two together.</em>
+  </div>
+  <div class="answer-section" style="margin-top:50px; text-align:center;">
+    <h2>ENTER THE PASSWORD TO CONTINUE</h2>
+    <input id="pw" type="text" placeholder="type your answer..." style="padding:10px; width:250px; border-radius:8px; border:none; margin-top:10px;">
+    <button onclick="checkPW()" style="padding:10px 20px; margin-left:10px; border:none; border-radius:8px; cursor:pointer;">Submit</button>
+    <p id="msg" style="margin-top:15px; font-size:1.1rem;"></p>
+  </div>
+
+  <div style="text-align:center; margin-top:40px; opacity:0.7; font-size:0.9rem;">
+    <p>Tap play if the music doesn't start automatically:</p>
+    <audio controls>
+      <source src="https://dn721804.ca.archive.org/0/items/Bandcamp-277078843/277078843.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+
+<script>
+function checkPW(){
+  const val = document.getElementById('pw').value.trim().toLowerCase();
+  if(val === 'lincoln3112'){
+    document.getElementById('msg').innerHTML = 'Correct! Proceed to your next puzzle...';
+    document.getElementById('msg').style.color = '#0f0';
+    setTimeout(()=>{
+      window.location.href = 'https://dionysus887.github.io/birthday-morsecode/';
+    },1500);
+  } else {
+    document.getElementById('msg').innerHTML = 'Wrong answer! Look closer at the poem and the hint...';
+    document.getElementById('msg').style.color = '#f33';
+  }
+}
+window.addEventListener('DOMContentLoaded', ()=>{
+  const a=document.getElementById('bgm');
+  if(a) a.play().catch(()=>{});
+});
+document.addEventListener('click', ()=>{
+  const bg=document.getElementById('bgm');
+  if(bg){
+    bg.play().catch(()=>{});
+  }
+},{once:true});
+</script>
+
+</div>
+</body>
+</html>
